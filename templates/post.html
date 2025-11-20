@@ -9,26 +9,19 @@
 <body>
 <div class="wrapper">
     <div class="top">
-        <div class="title"><h1>My Blog</h1></div>
+        <div class="title">
+            <a href="{{ url_for('home') }}">
+                <h1>My Blog</h1>
+            </a>
+        </div>
     </div>
-    {% for blog_post in posts: %}
         <div class="content">
             <div class="card">
                 <h2>{{ blog_post['title'] }}</h2>
-                <p class="text">{{ blog_post['subtitle']}} </p>
-                <a href="{{ url_for('get_post', list_item=blog_post['id']-1) }}">Read</a>
+                <p>{{ blog_post['body'] }}</p>
             </div>
-        </div>
-    {% endfor %}
-    <!--
-    <div class="content">
-        <div class="card">
-            <h2>Another blog post</h2>
-            <p class="text">Lorem ipsum dolor sit </p>
-            <a href="#">Read</a>
-        </div>
+
     </div>
-    -->
 </div>
 </body>
 <footer>
