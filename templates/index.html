@@ -1,37 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway" rel="stylesheet">
-    <link rel="stylesheet" href="../static/css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Test</title>
 </head>
+
 <body>
-<div class="wrapper">
-    <div class="top">
-        <div class="title"><h1>My Blog</h1></div>
-    </div>
-    {% for blog_post in posts: %}
-        <div class="content">
-            <div class="card">
-                <h2>{{ blog_post['title'] }}</h2>
-                <p class="text">{{ blog_post['subtitle']}} </p>
-                <a href="{{ url_for('get_post', list_item=blog_post['id']-1) }}">Read</a>
-            </div>
-        </div>
-    {% endfor %}
-    <!--
-    <div class="content">
-        <div class="card">
-            <h2>Another blog post</h2>
-            <p class="text">Lorem ipsum dolor sit </p>
-            <a href="#">Read</a>
-        </div>
-    </div>
-    -->
-</div>
+    <h2> W3 Form </h2>
+
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="name" name="name">
+        <label for="pwd1">Password:</label>
+        <input type="password" id="pwd1" placeholder="password" name="pwd1">
+        <input type="submit" value="Ok">
+    </form>
+    <hr>
+    <h2> Solution's form:</h2>
+    <form action="/login" method="post">
+        <label>Name</label>
+        <input type="text" placeholder="name" name="username">
+        <label>Password</label>
+        <input type="password" placeholder="password" name="password">
+        <button type="submit">Ok</button>
+    </form>
+    <hr>
+    <h2> Solution's form with dynamic URL:</h2>
+    <form action="{{ url_for('receive_data') }}" method="post">
+        <label>Name</label>
+        <input type="text" placeholder="name" name="username">
+        <label>Password</label>
+        <input type="password" placeholder="password" name="password">
+        <button type="submit">Ok</button>
+    </form>
+
 </body>
-<footer>
-    <p>Made with ♥️ in London.</p>
-</footer>
+
 </html>
